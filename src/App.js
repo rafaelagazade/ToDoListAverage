@@ -131,7 +131,7 @@ function App() {
   }, [result]);
 
   return (
-    <div className="App h-screen bg-slate-950 flex justify-center items-start mobile:w-full mobile:h-full mobile:overflow-x-hidden laptop:w-screen laptop:h-screen laptop:overflow-x-hidden ">
+    <div className="App h-screen bg-slate-950 flex justify-center items-start mobile:m-0 mobile:0 mobile:overflow-y-hidden mobile:w-full mobile:h-full mobile:overflow-x-hidden laptop:w-screen laptop:h-screen laptop:overflow-x-hidden ">
       <div className="h-auto w-full flex flex-col items-center justify-center">
         <h1 className="text-slate-100 mb-10 font-medium text-2xl mt-20">
           To Do List
