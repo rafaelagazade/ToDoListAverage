@@ -131,21 +131,21 @@ function App() {
   }, [result]);
 
   return (
-    <div className="App h-screen bg-slate-950 flex justify-center items-start">
+    <div className="App h-screen bg-slate-950 flex justify-center items-start mobile:w-full mobile:h-full mobile:overflow-x-hidden laptop:w-screen laptop:h-screen laptop:overflow-x-hidden ">
       <div className="h-auto w-full flex flex-col items-center justify-center">
         <h1 className="text-slate-100 mb-10 font-medium text-2xl mt-20">
           To Do List
         </h1>
-        <div className=" h-12 w-96 bg bg-slate-800 flex items-center  justify-between gap-4 p-4 rounded-lg">
+        <div className="desktop:h-12 desktop:w-96 bg-slate-800 flex items-center  justify-between gap-4 p-4 rounded-lg mobile:w-72 mobileL:w-80 laptop:h-16 laptop:w-96 ">
           <input
-            className="w-3/4 bg-transparent outline-none text-white
-            border-r-slate-600 border-2 border-transparent"
+            className="desktop:w-3/4 bg-transparent outline-none text-white
+            border-r-slate-600 border-2 border-transparent mobile:w-2/3 "
             placeholder="What is the task for today"
             onChange={handleInput}
             onKeyUp={handleKeyUp}
             value={task}
           />
-          <div className="flex w-1/4 justify-between items-center">
+          <div className="flex w-1/4 justify-between items-center mobile:w-1/3 laptop:px-2">
             {!icon ? (
               <button className="pointer-events-none">
                 <AiOutlinePlusCircle
@@ -178,29 +178,29 @@ function App() {
             )}
           </div>
         </div>
-        <div className="h-96 w-2/6 mt-16 ml-4 flex flex-col gap-2 overflow-y-scroll overflow-x-hidden scrollbar scrollbar-track-transparent scrollbar-thumb-slate-800 pr-2 scrollbar-thumb-rounded-lg ">
+        <div className="h-96 w-2/6 mt-16 ml-4 flex flex-col gap-2 overflow-y-scroll overflow-x-hidden scrollbar scrollbar-track-transparent scrollbar-thumb-slate-800 pr-2 scrollbar-thumb-rounded-lg mobile:w-11/12 mobileL:w-96">
           {result?.map((item, index) => (
             <div
               key={index}
-              className={`h-10  rounded-lg bg-slate-800 flex items-center justify-between shrink-0 border-l-4 border-[${item?.border}]" `}
+              className={`desktop:h-10  rounded-lg bg-slate-800 flex items-center justify-between shrink-0 border-l-4 border-[${item?.border}]" laptop:h-14 mobile:h-12`}
               style={{ borderColor: item.border }}
             >
-              <div className="text-white font-medium flex items-center justify-center h-full w-8 rounded-lg bg-slate-600">
+              <div className="text-white font-medium flex items-center justify-center h-full w-8 rounded-lg bg-slate-600 ">
                 {result?.length - index}
               </div>
 
               {edit?.index !== index ? (
-                <div className="text-white font-normal w-3/5 h-full flex items-center overflow-hidden border-r-slate-600 border-2 rounded-lg border-transparent">
+                <div className="text-white font-normal w-3/5 h-full flex items-center overflow-hidden border-r-slate-600 border-2 rounded-lg border-transparent mobile:w-3/6 mobile:pl-2">
                   {item?.text}
                 </div>
               ) : (
                 <input
-                  className="bg-slate-700 w-3/5 outline-none text-white pl-2 rounded-md border-r-2"
+                  className="bg-slate-700 w-3/5 outline-none text-white pl-2 rounded-md border-r-2 mobile:ml-4"
                   value={edit.text}
                   onChange={editChange}
                 />
               )}
-              <div className="flex justify-between  items-center w-1/5">
+              <div className="flex justify-between  items-center w-1/5 mobile:w-2/6 mobile:pl-2">
                 {edit?.index !== index ? (
                   <button>
                     <BsPencilSquare
